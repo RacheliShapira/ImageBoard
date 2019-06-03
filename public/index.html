@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+   <title>Image board</title>
+   <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+   <div id="main">
+
+        <h1>MY IMAGE BOARD</h1>
+
+        <form id="input-form">
+           <div class="input-box">
+               <input class="inputF" v-model="form.name" type = "text" name= "name" placeholder="Username"></input>
+               <input class="inputF" v-model="form.title" type = "text" name= "title" placeholder="Image title"></input>
+               <input class="inputF" v-model="form.description" type = "text" name= "description" placeholder="Image description"></input>
+               <input id="file" type ="file" accept ="image/*"></input>
+               <button @click = 'uploadFile'>upload</button>
+           </div> 
+        </form>
+
+        <div id="image-box" v-if="images.length > 0">
+            <div v-for="imgInfo in images" @click = 'showModal(imgInfo.id)' class="img-card">
+                <img v-bind:src="imgInfo.url">
+                <p class="image-title">{{imgInfo.title}}</p>
+            </div>
+            <button id="see-more" @click="seeMore" v-if="more">See More Images</button>
+        </div>
+            <modal :img_id = "img_id" v-if="img_id" @close="hideModal">
+            </modal>
+   </div>
+
+
+   <script type="text/x-template" id="modal-template">
+   <div class="modal-container" @click.self = "$emit('close')">
+       <div id="model_info">
+       <button id= "x" @click = "$emit('close')">X</button>
+
+           <div id='img-info'>
+               <img id='modal_img' :src='url'>
+               <h2> {{title}}</h2>
+               <h4>{{description}}</h4>
+               <h5>uploaded by {{username}} at {{uploadTime}}</h5>
+           </div><!-- Close img-info -->
+           <div id="comment_info">
+                   <form id="comment_form">
+                       <h3>Add a comment:</h3>
+                    <label for="name" class="editP"> Name: </label>
+                       <input v-model="comment.name" type = "text" name= "name" placeholder="name"></input>
+                       <label for="text" class="editP"> Text: </label>
+                       <input v-model="comment.text" type = "text" name= "text" placeholder="comment"></input>
+                       <button @click='addImageComment'>Add</button>
+                   </form>
+                   <div id='comments_box' v-for="commentInfo in comments" class="comment-card">
+                       <p> {{commentInfo.comment}}</p>
+                       <h5>{{commentInfo.username}} on  {{commentInfo.created_at}}</h5>
+
+                   </div>
+                   <br>
+
+          </div><!-- Close comment-info -->
+       </div><!-- Close model-info -->
+   </div> <!-- Close modal-container -->
+
+   </script>
+
+   <script src="/js/vue.js"></script>
+   <script src="/js/axios.min.js"></script>
+   <script src= "/js/script.js"></script>
+</body>
+</html>

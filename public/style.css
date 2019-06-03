@@ -1,0 +1,135 @@
+body {
+    background-color: SandyBrown;
+}
+
+h1 {
+    color: SaddleBrown;
+    text-align: center;
+}
+
+.input-box {
+    position: absolute;
+    top: 80px;
+}
+
+.inputF {
+    height: 20px;
+    text-align: center;
+    border: 1px solid SaddleBrown;
+}
+
+#file {
+    padding: 4px 10px;
+}
+
+button {
+    padding: 4px 10px;
+}
+
+#see-more {
+    background-color: SandyBrown;
+    height: 30px;
+    border: 1px solid SaddleBrown;
+    position: absolute;
+    left: 33%;
+    top: 100%;
+}
+
+#image-box {
+    background-color: SandyBrown;
+    position: absolute;
+    top: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 4px solid white;
+    justify-content: space-between;
+    padding: 10px;
+    margin-right: 15px;
+    border: 10px solid SaddleBrown;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+img {
+    width: 270px;
+    height: 270px;
+    object-fit: cover;
+    margin: 5px;
+    padding: 5px;
+}
+
+.img-card {
+    margin: 3px;
+    border: 1px solid SaddleBrown;
+}
+
+.img-card:hover {
+    transform: translate(2px, 2px);
+    border: 4px solid white;
+}
+
+.image-title {
+    position: relative;
+    margin: 2px;
+    text-align: center;
+    bottom: 15px;
+    font-family: Helvetica;
+    font-weight: lighter;
+}
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000000b1;
+    overflow: scroll;
+}
+
+#x {
+    /* background-color: Burlywood;
+    border: 1px solid SaddleBrown; */
+    width: 30px;
+    font-weight: bold;
+    margin: 0;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+#model_info {
+    background-color: Burlywood;
+    border: 3px solid SaddleBrown;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.6);
+
+    width: 75vw;
+    position: absolute;
+    left: 15%;
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+#modal_img {
+    /* width: 150px;
+    height: 150px; */
+}
+#img-info {
+    margin-left: 33%;
+    align-items: center;
+    /* border: 1px solid green; */
+}
+#comment_info {
+    margin-left: 20px;
+}
+#comments_box {
+    /* border: 1px solid red; */
+    background: Wheat;
+    margin-right: 20px;
+    margin-top: 20px;
+    padding: 1%;
+}
+#comments_box.p {
+    color: red;
+}
